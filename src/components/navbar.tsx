@@ -1,4 +1,4 @@
-export default function Navbar(page: any) {
+export default function Navbar() {
   return (
     <nav
       class="w-full text-center text-xl flex justify-center items-center relative"

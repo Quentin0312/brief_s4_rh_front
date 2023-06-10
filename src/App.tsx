@@ -1,13 +1,13 @@
 import type { Component } from "solid-js";
 import Navbar from "./components/navbar";
+import EmployeeGrid from "./components/EmployeeGrid";
 
 const App: Component = () => {
   return (
     <>
       <Navbar />
-      {/* <EmployeeGrid /> */}
+      <EmployeeGrid />
       {/* SWITCH <UserInfo /> ET <AddUser /> */}
-      <div> YO ! </div>
     </>
   );
 };
