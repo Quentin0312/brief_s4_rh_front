@@ -1,4 +1,4 @@
-import { For, createResource, createSignal } from "solid-js";
+import { For, createEffect, createResource, createSignal } from "solid-js";
 import { request } from "../utils";
 
 export const [selected, setSelected] = createSignal<number>(-1);
@@ -18,6 +18,8 @@ const employeeGridRequest = async () =>
   (await request("api/employee", "GET", null))
     .json()
     .then((res) => setEmployees(res));
+
+createEffect(() => console.log("selected()", selected()));
 
 export default function EmployeeGrid() {
   const [employees] = createResource(employeeGridRequest);
