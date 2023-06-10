@@ -1,7 +1,8 @@
 import { For, createResource, createSignal } from "solid-js";
 import { request } from "../utils";
 
-const [employees, setEmployees] = createSignal<
+export const [selected, setSelected] = createSignal<number>(-1);
+export const [employees, setEmployees] = createSignal<
   {
     id: number;
     first_name: string;
@@ -26,9 +27,21 @@ export default function EmployeeGrid() {
       {(employee) => (
         <>
           <tr>
-            <td>{employee.first_name}</td>
-            <td>{employee.last_name}</td>
-            <td>{employee.email_pro}</td>
+            <td>
+              <a onClick={() => setSelected(employee.id)}>
+                {employee.first_name}
+              </a>
+            </td>
+            <td>
+              <a onClick={() => setSelected(employee.id)}>
+                {employee.last_name}
+              </a>
+            </td>
+            <td>
+              <a onClick={() => setSelected(employee.id)}>
+                {employee.email_pro}
+              </a>
+            </td>
           </tr>
         </>
       )}
