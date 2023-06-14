@@ -2,16 +2,12 @@ import { MethodEnum, request } from "../utils";
 import { StatusEnum, employeeGridRequest, employees } from "./EmployeeGrid";
 
 export const getSelectedEmployee = () => {
-  // verif undefined et return "no employee selected" ??
-  console.log("employees()", employees());
-
   return employees()?.find(
     (employee) => employee.status() === StatusEnum.selected
   );
 };
 
 function handleDeletion(idEmployee: number | undefined) {
-  //fetch
   if (!idEmployee) {
     return;
   }
@@ -23,7 +19,7 @@ function handleDeletion(idEmployee: number | undefined) {
   fetchDeleteEmployee();
 }
 
-export default function userInfo() {
+export default function EmployeeInfo() {
   return (
     <>
       <ul>
@@ -38,7 +34,12 @@ export default function userInfo() {
           Supprimer l'employé
         </button>
         <br />
-        <button onClick={() => console.log("TODO")}>Modifier l'employé</button>
+        {/* TODO: do the same of selectEmployee() pour robustesse (et refactor) */}
+        <button
+          onClick={() => getSelectedEmployee()?.setStatus(StatusEnum.modifying)}
+        >
+          Modifier l'employé
+        </button>
       </ul>
     </>
   );

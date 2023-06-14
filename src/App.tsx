@@ -1,11 +1,14 @@
-import { Show, type Component } from "solid-js";
+import { type Component, Switch, Match } from "solid-js";
 import Navbar from "./components/navbar";
 import EmployeeGrid, {
   deselectEmployee,
   employees,
 } from "./components/EmployeeGrid";
-import UserInfo, { getSelectedEmployee } from "./components/UserInfo";
+import EmployeeInfo, { getSelectedEmployee } from "./components/EmployeeInfo";
 import AddEmployee from "./components/AddEmployee";
+import ModifyEmployee, {
+  getModifiyngEmployee,
+} from "./components/ModifyEmployee";
 
 const App: Component = () => {
   return (
@@ -23,9 +26,14 @@ const App: Component = () => {
       <div class="grid grid-cols-2 gap-4">
         <EmployeeGrid />
 
-        <Show when={getSelectedEmployee()} fallback={<AddEmployee />}>
-          <UserInfo />
-        </Show>
+        <Switch fallback={<AddEmployee />}>
+          <Match when={getSelectedEmployee()}>
+            <EmployeeInfo />
+          </Match>
+          <Match when={getModifiyngEmployee()}>
+            <ModifyEmployee />
+          </Match>
+        </Switch>
       </div>
     </>
   );

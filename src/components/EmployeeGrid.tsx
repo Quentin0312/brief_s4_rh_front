@@ -32,22 +32,23 @@ function selectEmployee(employees: EmployeeType[], targetIdEmployee: number) {
           : StatusEnum.selected
       );
     } else {
+      // TODO: refactor
       employee.setStatus((previousStatus: StatusEnum) =>
-        previousStatus === StatusEnum.selected
-          ? StatusEnum.notSelected
-          : previousStatus
+        previousStatus === StatusEnum.notSelected
+          ? previousStatus
+          : StatusEnum.notSelected
       );
     }
   }
 }
-
+// rename setAllEmployeesToNotSelected
 export function deselectEmployee(employees: EmployeeType[]) {
   for (const employee of employees) {
     // REFACTOR with setToNotSelectedStatusAux
     employee.setStatus((previousStatus: StatusEnum) =>
-      previousStatus === StatusEnum.selected
-        ? StatusEnum.notSelected
-        : previousStatus
+      previousStatus === StatusEnum.notSelected
+        ? previousStatus
+        : StatusEnum.notSelected
     );
   }
 }
@@ -70,7 +71,6 @@ export const employeeGridRequest = async () =>
 
 export default function EmployeeGrid() {
   onMount(() => employeeGridRequest());
-
   return (
     <table>
       <thead>
