@@ -1,5 +1,5 @@
 import { Accessor, For, Setter, createResource, createSignal } from "solid-js";
-import { request } from "../utils";
+import { MethodEnum, request } from "../utils";
 
 type EmployeeType = {
   id: number;
@@ -40,7 +40,7 @@ export function deselectEmployee(employees: EmployeeType[]) {
 }
 
 const employeeGridRequest = async () =>
-  (await request("GET", null)).json().then((res) => {
+  (await request(MethodEnum.get, null)).json().then((res) => {
     res = res.map((employee: EmployeeType) => {
       const [selected, setSelected] = createSignal(false);
       const employeeInfo = { ...employee, selected, setSelected };

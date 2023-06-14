@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js";
-import { Formater, request } from "../utils";
+import { Formater, MethodEnum, request } from "../utils";
 
 export default function AddEmployee() {
   const [lastName, setLastName] = createSignal("");
@@ -20,7 +20,8 @@ export default function AddEmployee() {
       email_perso: mailPerso(),
     };
     // TODO .then(afficher pop up ET fetch pour remplir setEMployee et garder la sync des datas)
-    request("POST", Formater(data));
+    // TODO: réecrire correctement (avec async await)
+    request(MethodEnum.post, Formater(data));
   }
 
   return (

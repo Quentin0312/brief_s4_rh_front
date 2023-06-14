@@ -1,4 +1,4 @@
-import { Formater, request } from "../utils";
+import { Formater, MethodEnum, request } from "../utils";
 import { employees } from "./EmployeeGrid";
 
 export const getSelectedEmployee = () => {
@@ -12,11 +12,9 @@ function handleDeletion(idEmployee: number | undefined) {
     return;
   }
 
-  // TODO: refactor url => always the same !
-  // TODO: créer un type pour les méthodes de requêtes
   // TODO: ajouter .then(fetchEmployee) pour garder sync
   const fetchDeleteEmployee = async () =>
-    (await request("DELETE", Formater({ id: idEmployee })))
+    (await request(MethodEnum.delete, Formater({ id: idEmployee })))
       .json()
       .then((res) => console.log(res));
   fetchDeleteEmployee();
