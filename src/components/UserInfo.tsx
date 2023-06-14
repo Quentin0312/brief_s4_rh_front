@@ -1,8 +1,8 @@
-import { employees, selected } from "./EmployeeGrid";
+import { employees } from "./EmployeeGrid";
 
-const getSelectedEmployee = () => {
+export const getSelectedEmployee = () => {
   // verif undefined et return "no employee selected" ??
-  return employees()?.find((employee) => employee.id == selected());
+  return employees()?.find((employee) => employee.selected() == true);
 };
 
 export default function userInfo() {
