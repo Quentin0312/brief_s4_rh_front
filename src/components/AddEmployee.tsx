@@ -20,7 +20,7 @@ export default function AddEmployee() {
       email_perso: mailPerso(),
     };
     // TODO .then(afficher pop up ET fetch pour remplir setEMployee et garder la sync des datas)
-    request("api/employee", "POST", Formater(data));
+    request("POST", Formater(data));
   }
 
   return (

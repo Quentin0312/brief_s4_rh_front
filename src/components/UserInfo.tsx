@@ -16,7 +16,7 @@ function handleDeletion(idEmployee: number | undefined) {
   // TODO: créer un type pour les méthodes de requêtes
   // TODO: ajouter .then(fetchEmployee) pour garder sync
   const fetchDeleteEmployee = async () =>
-    (await request("api/employee", "DELETE", Formater({ id: idEmployee })))
+    (await request("DELETE", Formater({ id: idEmployee })))
       .json()
       .then((res) => console.log(res));
   fetchDeleteEmployee();

@@ -40,7 +40,7 @@ export function deselectEmployee(employees: EmployeeType[]) {
 }
 
 const employeeGridRequest = async () =>
-  (await request("api/employee", "GET", null)).json().then((res) => {
+  (await request("GET", null)).json().then((res) => {
     res = res.map((employee: EmployeeType) => {
       const [selected, setSelected] = createSignal(false);
       const employeeInfo = { ...employee, selected, setSelected };
