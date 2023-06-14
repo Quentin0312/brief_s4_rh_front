@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import { MethodEnum, request } from "../utils";
+import { employeeGridRequest } from "./EmployeeGrid";
 
 export default function AddEmployee() {
   const [lastName, setLastName] = createSignal("");
@@ -18,9 +19,12 @@ export default function AddEmployee() {
       email_pro: mailPro(),
       email_perso: mailPerso(),
     };
-    // TODO .then(afficher pop up ET fetch pour remplir setEMployee et garder la sync des datas)
+    // TODO: ajout feedback utilisateur
     const fetchAddEmployee = async () =>
-      (await request(MethodEnum.post, data)).json();
+      (await request(MethodEnum.post, data))
+        .json()
+        .then(() => employeeGridRequest());
+
     fetchAddEmployee();
   }
 

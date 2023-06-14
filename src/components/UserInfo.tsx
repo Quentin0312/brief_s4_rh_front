@@ -1,5 +1,5 @@
 import { MethodEnum, request } from "../utils";
-import { employees } from "./EmployeeGrid";
+import { employeeGridRequest, employees } from "./EmployeeGrid";
 
 export const getSelectedEmployee = () => {
   // verif undefined et return "no employee selected" ??
@@ -11,12 +11,11 @@ function handleDeletion(idEmployee: number | undefined) {
   if (!idEmployee) {
     return;
   }
-
-  // TODO: ajouter .then(fetchEmployee) pour garder sync
+  // TODO: ajout feedback utilisateur => suppression bien effectué
   const fetchDeleteEmployee = async () =>
     (await request(MethodEnum.delete, { id: idEmployee }))
       .json()
-      .then((res) => console.log(res));
+      .then(() => employeeGridRequest());
   fetchDeleteEmployee();
 }
 
