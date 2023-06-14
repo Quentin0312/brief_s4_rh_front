@@ -1,9 +1,13 @@
 import { MethodEnum, request } from "../utils";
-import { employeeGridRequest, employees } from "./EmployeeGrid";
+import { StatusEnum, employeeGridRequest, employees } from "./EmployeeGrid";
 
 export const getSelectedEmployee = () => {
   // verif undefined et return "no employee selected" ??
-  return employees()?.find((employee) => employee.selected() == true);
+  console.log("employees()", employees());
+
+  return employees()?.find(
+    (employee) => employee.status() === StatusEnum.selected
+  );
 };
 
 function handleDeletion(idEmployee: number | undefined) {
