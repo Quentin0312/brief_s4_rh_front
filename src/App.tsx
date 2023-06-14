@@ -11,15 +11,18 @@ const App: Component = () => {
   return (
     <>
       <Navbar />
-      <a
+
+      <button
         onClick={() => {
           deselectEmployee(employees());
         }}
       >
         Ajouter un employé
-      </a>
+      </button>
+
       <div class="grid grid-cols-2 gap-4">
         <EmployeeGrid />
+
         <Show when={getSelectedEmployee()} fallback={<AddEmployee />}>
           <UserInfo />
         </Show>

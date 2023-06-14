@@ -29,9 +29,12 @@ export default function userInfo() {
         <li>{getSelectedEmployee()?.phone}</li>
         <li>{getSelectedEmployee()?.email_perso}</li>
         <li>{getSelectedEmployee()?.email_pro}</li>
+        <br />
         <button onClick={() => handleDeletion(getSelectedEmployee()?.id)}>
           Supprimer l'employé
         </button>
+        <br />
+        <button onClick={() => console.log("TODO")}>Modifier l'employé</button>
       </ul>
     </>
   );
