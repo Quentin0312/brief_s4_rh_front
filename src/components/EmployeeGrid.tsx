@@ -17,7 +17,7 @@ export const [employees, setEmployees] = createSignal<EmployeeType[]>([]);
 
 function selectEmployee(employees: EmployeeType[], targetIdEmployee: number) {
   for (const employee of employees) {
-    console.log("employee", employee);
+    // console.log("employee", employee);
 
     if (employee.id == targetIdEmployee) {
       employee.setSelected((previousBool) =>

@@ -5,6 +5,7 @@ import EmployeeGrid, {
   employees,
 } from "./components/EmployeeGrid";
 import UserInfo, { getSelectedEmployee } from "./components/UserInfo";
+import AddEmployee from "./components/AddEmployee";
 
 const App: Component = () => {
   return (
@@ -19,7 +20,7 @@ const App: Component = () => {
       </a>
       <div class="grid grid-cols-2 gap-4">
         <EmployeeGrid />
-        <Show when={getSelectedEmployee()} fallback={<div>Form d'ajout</div>}>
+        <Show when={getSelectedEmployee()} fallback={<AddEmployee />}>
           <UserInfo />
         </Show>
       </div>
