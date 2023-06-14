@@ -52,6 +52,7 @@ const employeeGridRequest = async () =>
   });
 
 export default function EmployeeGrid() {
+  // TODO: remplacer par un fetch dans un onMount
   const [employeesRessource] = createResource(employeeGridRequest);
 
   return (

@@ -19,7 +19,8 @@ export default function AddEmployee() {
       email_pro: mailPro(),
       email_perso: mailPerso(),
     };
-    request("api/employee", "POST", Formater(data)); // .then(afficher pop up)
+    // TODO .then(afficher pop up ET fetch pour remplir setEMployee et garder la sync des datas)
+    request("api/employee", "POST", Formater(data));
   }
 
   return (
