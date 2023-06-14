@@ -1,16 +1,19 @@
 import { employees, selected } from "./EmployeeGrid";
 
+const getSelectedEmployee = () => {
+  // verif undefined et return "no employee selected" ??
+  return employees()?.find((employee) => employee.id == selected());
+};
+
 export default function userInfo() {
-  //   const selectedEmployee = employees()?.find(
-  //     (employee) => employee.id == selected()
-  //   );
-
-  //   const selectedEmployee = () =>
-  //     employees()?.find((employee) => employee.id == selected());
-
   return (
     <ul>
-      <li>{selectedEmployee?.gender}</li>
+      <li>{getSelectedEmployee()?.first_name}</li>
+      <li>{getSelectedEmployee()?.last_name}</li>
+      <li>{getSelectedEmployee()?.gender}</li>
+      <li>{getSelectedEmployee()?.phone}</li>
+      <li>{getSelectedEmployee()?.email_perso}</li>
+      <li>{getSelectedEmployee()?.email_pro}</li>
     </ul>
   );
 }

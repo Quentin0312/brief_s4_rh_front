@@ -7,8 +7,10 @@ const App: Component = () => {
   return (
     <>
       <Navbar />
-      <EmployeeGrid />
-      <UserInfo />
+      <div class="grid grid-cols-2 gap-4">
+        <EmployeeGrid />
+        <UserInfo />
+      </div>
       {/* SWITCH <UserInfo /> ET <AddUser /> */}
     </>
   );

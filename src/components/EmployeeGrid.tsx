@@ -25,9 +25,9 @@ export default function EmployeeGrid() {
   const [employees] = createResource(employeeGridRequest);
 
   return (
-    <For each={employees()}>
-      {(employee) => (
-        <>
+    <tbody>
+      <For each={employees()}>
+        {(employee) => (
           <tr>
             <td>
               <a onClick={() => setSelected(employee.id)}>
@@ -39,14 +39,14 @@ export default function EmployeeGrid() {
                 {employee.last_name}
               </a>
             </td>
-            <td>
+            {/* <td>
               <a onClick={() => setSelected(employee.id)}>
                 {employee.email_pro}
               </a>
-            </td>
+            </td> */}
           </tr>
-        </>
-      )}
-    </For>
+        )}
+      </For>
+    </tbody>
   );
 }
