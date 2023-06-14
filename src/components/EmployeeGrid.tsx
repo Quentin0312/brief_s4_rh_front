@@ -1,4 +1,4 @@
-import { Accessor, For, Setter, createResource, createSignal } from "solid-js";
+import { Accessor, For, Setter, createSignal, onMount } from "solid-js";
 import { MethodEnum, request } from "../utils";
 
 type EmployeeType = {
@@ -39,7 +39,7 @@ export function deselectEmployee(employees: EmployeeType[]) {
   }
 }
 
-const employeeGridRequest = async () =>
+export const employeeGridRequest = async () =>
   (await request(MethodEnum.get, null)).json().then((res) => {
     res = res.map((employee: EmployeeType) => {
       const [selected, setSelected] = createSignal(false);
@@ -52,8 +52,7 @@ const employeeGridRequest = async () =>
   });
 
 export default function EmployeeGrid() {
-  // TODO: remplacer par un fetch dans un onMount
-  const [employeesRessource] = createResource(employeeGridRequest);
+  onMount(() => employeeGridRequest());
 
   return (
     <table>
