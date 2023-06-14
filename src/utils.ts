@@ -4,14 +4,17 @@ export enum MethodEnum {
   delete = "DELETE",
 }
 
-export const Formater = (data: any) => {
+export const formaterAux = (data: any) => {
+  if (data == null) {
+    return data;
+  }
+
   const formdata = new FormData();
   Object.keys(data).forEach((_data) => formdata.append(_data, data[_data]));
   return formdata;
 };
 
-//TODO: factoriser => utlisier Formater directement ici => formaterAux() !
 export const request = async (method: MethodEnum, data: any) => {
   const host = "http://localhost:8000/api/employee";
-  return fetch(host, { method: method, body: data }); // , headers: {Authorization: String(token)}
+  return fetch(host, { method: method, body: formaterAux(data) });
 };
