@@ -10,7 +10,6 @@ export default function AddEmployee() {
   const [mailPerso, setMailPerso] = createSignal("");
 
   function handleSubmit() {
-    // console.log(lastName(), firstName(), gender());
     const data = {
       first_name: firstName(),
       last_name: lastName(),
@@ -20,8 +19,9 @@ export default function AddEmployee() {
       email_perso: mailPerso(),
     };
     // TODO .then(afficher pop up ET fetch pour remplir setEMployee et garder la sync des datas)
-    // TODO: réecrire correctement (avec async await)
-    request(MethodEnum.post, data);
+    const fetchAddEmployee = async () =>
+      (await request(MethodEnum.post, data)).json();
+    fetchAddEmployee();
   }
 
   return (
