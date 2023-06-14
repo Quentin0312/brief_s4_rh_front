@@ -68,14 +68,18 @@ export default function EmployeeGrid() {
           {(employee) => (
             <tr>
               <td>
-                <a onclick={() => selectEmployee(employees(), employee.id)}>
+                <button
+                  onclick={() => selectEmployee(employees(), employee.id)}
+                >
                   {employee.first_name}
-                </a>
+                </button>
               </td>
               <td>
-                <a onclick={() => selectEmployee(employees(), employee.id)}>
+                <button
+                  onclick={() => selectEmployee(employees(), employee.id)}
+                >
                   {employee.last_name}
-                </a>
+                </button>
               </td>
             </tr>
           )}
