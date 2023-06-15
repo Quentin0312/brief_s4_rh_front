@@ -72,7 +72,7 @@ export const employeeGridRequest = async () =>
 export default function EmployeeGrid() {
   onMount(() => employeeGridRequest());
   return (
-    <div class="overflow-x-auto h-3/4 w-3/4">
+    <div class="overflow-x-auto h-4/6 w-3/4">
       <table class="table">
         <thead>
           <tr>
