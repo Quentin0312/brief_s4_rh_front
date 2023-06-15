@@ -24,7 +24,7 @@ const App: Component = () => {
         Ajouter un employé
       </button>
 
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-2">
         <div class="flex justify-center">
           <EmployeeGrid />
         </div>

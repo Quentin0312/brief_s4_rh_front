@@ -21,26 +21,57 @@ function handleDeletion(idEmployee: number | undefined) {
 
 export default function EmployeeInfo() {
   return (
-    <>
-      <ul>
-        <li>{getSelectedEmployee()?.first_name}</li>
-        <li>{getSelectedEmployee()?.last_name}</li>
-        <li>{getSelectedEmployee()?.gender}</li>
-        <li>{getSelectedEmployee()?.phone}</li>
-        <li>{getSelectedEmployee()?.email_perso}</li>
-        <li>{getSelectedEmployee()?.email_pro}</li>
-        <br />
-        <button onClick={() => handleDeletion(getSelectedEmployee()?.id)}>
+    <div class="grid grid-cols-1 h-96">
+      {/* INFO */}
+      <div class="w-3/4">
+        <div class="overflow-x-auto">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>Prénom(s)</th>
+                <td>{getSelectedEmployee()?.first_name}</td>
+              </tr>
+              <tr>
+                <th>Nom</th>
+                <td>{getSelectedEmployee()?.last_name}</td>
+              </tr>
+              <tr>
+                <th>Sexe</th>
+                <td>{getSelectedEmployee()?.gender}</td>
+              </tr>
+              <tr>
+                <th>Téléphone</th>
+                <td>{getSelectedEmployee()?.phone}</td>
+              </tr>
+              <tr>
+                <th>Mail perso</th>
+                <td>{getSelectedEmployee()?.email_perso}</td>
+              </tr>
+              <tr>
+                <th>Mail pro</th>
+                <td>{getSelectedEmployee()?.email_pro}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* BUTTONS */}
+      <div class="grid grid-cols-2">
+        <button
+          class="btn btn-neutral m-5"
+          onClick={() => handleDeletion(getSelectedEmployee()?.id)}
+        >
           Supprimer l'employé
         </button>
-        <br />
         {/* TODO: do the same of selectEmployee() pour robustesse (et refactor) */}
         <button
+          class="btn btn-neutral m-5"
           onClick={() => getSelectedEmployee()?.setStatus(StatusEnum.modifying)}
         >
           Modifier l'employé
         </button>
-      </ul>
-    </>
+      </div>
+    </div>
   );
 }
