@@ -72,35 +72,37 @@ export const employeeGridRequest = async () =>
 export default function EmployeeGrid() {
   onMount(() => employeeGridRequest());
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Prénom</th>
-        </tr>
-      </thead>
-      <tbody>
-        <For each={employees()}>
-          {(employee) => (
-            <tr>
-              <td>
-                <button
-                  onclick={() => selectEmployee(employees(), employee.id)}
-                >
-                  {employee.first_name}
-                </button>
-              </td>
-              <td>
-                <button
-                  onclick={() => selectEmployee(employees(), employee.id)}
-                >
-                  {employee.last_name}
-                </button>
-              </td>
-            </tr>
-          )}
-        </For>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto h-3/4 w-3/4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <For each={employees()}>
+            {(employee) => (
+              <tr>
+                <td>
+                  <button
+                    onclick={() => selectEmployee(employees(), employee.id)}
+                  >
+                    {employee.first_name}
+                  </button>
+                </td>
+                <td>
+                  <button
+                    onclick={() => selectEmployee(employees(), employee.id)}
+                  >
+                    {employee.last_name}
+                  </button>
+                </td>
+              </tr>
+            )}
+          </For>
+        </tbody>
+      </table>
+    </div>
   );
 }

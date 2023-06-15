@@ -16,6 +16,7 @@ const App: Component = () => {
       <Navbar />
 
       <button
+        class="btn btn-neutral"
         onClick={() => {
           deselectEmployee(employees());
         }}
@@ -24,8 +25,9 @@ const App: Component = () => {
       </button>
 
       <div class="grid grid-cols-2 gap-4">
-        <EmployeeGrid />
-
+        <div class="flex justify-center">
+          <EmployeeGrid />
+        </div>
         <Switch fallback={<AddEmployee />}>
           <Match when={getSelectedEmployee()}>
             <EmployeeInfo />
