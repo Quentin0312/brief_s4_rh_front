@@ -27,7 +27,7 @@ export default function AddEmployee() {
 
     fetchAddEmployee();
   }
-
+  // TODO: Refactor !!
   return (
     <div class="flex justify-center">
       <div>
