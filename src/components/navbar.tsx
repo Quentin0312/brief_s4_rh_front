@@ -3,7 +3,7 @@ import { deselectEmployee, employees } from "./EmployeeGrid";
 export default function Navbar() {
   return (
     <nav
-      class="w-full text-center text-xl flex justify-center items-center relative pt-10 pb-24"
+      class="w-full text-center text-xl flex justify-center items-center relative pt-10 pb-16"
       style="height: 64px"
     >
       <button

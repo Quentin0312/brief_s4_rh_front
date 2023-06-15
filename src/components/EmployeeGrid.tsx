@@ -72,37 +72,40 @@ export const employeeGridRequest = async () =>
 export default function EmployeeGrid() {
   onMount(() => employeeGridRequest());
   return (
-    <div class="overflow-x-auto h-4/6 w-3/4">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-          </tr>
-        </thead>
-        <tbody>
-          <For each={employees()}>
-            {(employee) => (
-              <tr>
-                <td>
-                  <button
-                    onclick={() => selectEmployee(employees(), employee.id)}
-                  >
-                    {employee.first_name}
-                  </button>
-                </td>
-                <td>
-                  <button
-                    onclick={() => selectEmployee(employees(), employee.id)}
-                  >
-                    {employee.last_name}
-                  </button>
-                </td>
-              </tr>
-            )}
-          </For>
-        </tbody>
-      </table>
+    <div class="grid grid-cols-1 h-4/6 w-3/4">
+      <h1 class="text-center text-xl pb-12">Liste des employées</h1>
+      <div class="overflow-x-auto ">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+            </tr>
+          </thead>
+          <tbody>
+            <For each={employees()}>
+              {(employee) => (
+                <tr>
+                  <td>
+                    <button
+                      onclick={() => selectEmployee(employees(), employee.id)}
+                    >
+                      {employee.first_name}
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      onclick={() => selectEmployee(employees(), employee.id)}
+                    >
+                      {employee.last_name}
+                    </button>
+                  </td>
+                </tr>
+              )}
+            </For>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
