@@ -22,6 +22,7 @@ export default function AddEmployee() {
     // TODO: ajout feedback utilisateur
     const fetchAddEmployee = async () =>
       (await request(MethodEnum.post, data))
+        // (await request(MethodEnum.patch, data))
         .json()
         .then(() => employeeGridRequest());
 
