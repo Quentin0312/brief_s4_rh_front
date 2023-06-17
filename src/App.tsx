@@ -9,7 +9,7 @@ import ModifyEmployee, {
 
 const App: Component = () => {
   return (
-    <>
+    <div class="overflow-hidden">
       <Navbar />
 
       <div class="grid grid-cols-2">
@@ -25,7 +25,7 @@ const App: Component = () => {
           </Match>
         </Switch>
       </div>
-    </>
+    </div>
   );
 };
 
