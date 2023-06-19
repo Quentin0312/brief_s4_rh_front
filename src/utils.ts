@@ -18,6 +18,7 @@ export const formaterAux = (data: any) => {
 
 export const request = async (method: MethodEnum, data: any) => {
   // const host = "http://localhost:8000/api/employee";
-  const host = "http://back.s4rh.ftsw4800.odns.fr/api/employee";
+  // const host = "http://back.s4rh.ftsw4800.odns.fr/api/employee";
+  const host = "http://0.0.0.0:8000/api/employee";
   return fetch(host, { method: method, body: formaterAux(data) });
 };
